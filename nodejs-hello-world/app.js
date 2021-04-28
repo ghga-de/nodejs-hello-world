@@ -1,6 +1,6 @@
 const http = require('http');
 const os = require('os');
-const message = "Hello World"
+const message = "Hello World Test"
 
 console.log("Server ist starting...");
 
