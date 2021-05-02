@@ -16,7 +16,7 @@ jobs:
         name: Build & push Docker image
         with:
           image: ghga/nodejs-hello-world
-          tags: ${{ github.event.release.tag_name }}
+          tags: ${{ github.event.release.tag_name }}, latest
           registry: docker.io
           dockerfile: Dockerfile.ci
           username: ${{ secrets.DOCKER_USERNAME }}
