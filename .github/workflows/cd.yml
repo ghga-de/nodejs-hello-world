@@ -29,7 +29,8 @@ jobs:
     steps:
       - name: trigger update in deployment repo
         run: |
+          # access token needs to be of format: <username>:<personal_access_token>
           curl -X POST https://api.github.com/repos/ghga-de/kubernetes_test_deployments/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.DEPLOYMENT_UPDATE_TOKEN }} \ # access token needs to be of format: <username>:<personal_access_token>
+          -u '${{ secrets.DEPLOYMENT_UPDATE_TOKEN }}' \
           --data '{"event_type": "new_chart_version", "client_payload": { "chart_name": "${{ github.event.repository.name }}", "new_version": "${{ github.event.release.tag_name}}" } }'
